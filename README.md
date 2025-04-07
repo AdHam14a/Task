@@ -1,54 +1,36 @@
-# React + TypeScript + Vite
+Dashboard Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Overview
 
-Currently, two official plugins are available:
+This project is a simple React-based dashboard that consists of two main pages: Home and Users.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Home Page: Displays several charts using Chart.js for data visualization.
 
-## Expanding the ESLint configuration
+Users Page: Contains a table that lists users from a data file, with pagination, filtering, and the ability to delete users. The user count is dynamically updated both on the Users page and the Home page.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The app uses React, React Router DOM, and Redux to manage state and enable navigation between pages.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Home Page
+Displays dynamic charts built with Chart.js.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The number of users is shown in real-time, fetched from the Users page state.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Users Page
+Displays a table of users with data imported from a file.
+
+Features pagination and filtering of users.
+
+Allows users to be deleted, with the state and user count updated instantly in both the Users table and Home page.
+
+Technologies Used
+React: For building the user interface.
+
+React Router DOM: For managing page navigation between the Home and Users pages.
+
+Redux: For managing and updating the global state, specifically the user count and user data.
+
+Chart.js: For rendering the charts on the Home page.
+
+Tailwind CSS: For styling the components.
